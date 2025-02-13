@@ -1,17 +1,20 @@
-import './assets/main.css'
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import App from "./App";
+import CreateMember from "./CreateMember";
+import UpdateMember from "./UpdateMember";
 
-import { StrictMode } from 'react'
-import { Routes, Route, HashRouter } from 'react-router'
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <HashRouter>
-    <StrictMode>
+function Main() {
+  return (
+    <Router>
       <Routes>
-        <Route path='/' element={<App/>}/>
+        <Route path="/" element={<App />} />
+        <Route path="/create" element={<CreateMember />} />
+        <Route path="/update" element={<UpdateMember />} />
       </Routes>
-    </StrictMode>
-  </HashRouter>
-)
+    </Router>
+  );
+}
+
+ReactDOM.render(<Main />, document.getElementById("root"));
